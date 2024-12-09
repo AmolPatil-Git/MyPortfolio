@@ -1,26 +1,53 @@
-body {
-    font-family: Arial, sans-serif;
+/* Reset Styles */
+* {
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: black;
+    color: white;
+    overflow: hidden;
+}
+
+/* Background Animation */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('background.jpg') no-repeat center center/cover;
+    filter: brightness(40%);
+    animation: background-move 15s infinite alternate ease-in-out;
+    z-index: -1;
+}
+
+@keyframes background-move {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+/* Header Section */
 header {
     text-align: center;
-    background-color: #333;
+    background: rgba(128, 0, 128, 0.8); /* Violet background */
     color: white;
-    padding: 1rem 0;
+    padding: 2rem 0;
 }
 
 header h1 {
-    margin: 0;
-    font-size: 2.5rem;
+    font-size: 3rem;
 }
 
 header p {
-    margin: 0.5rem 0 0;
+    font-size: 1.5rem;
 }
 
+/* Section Styling */
 section {
     padding: 2rem;
     text-align: center;
@@ -29,18 +56,40 @@ section {
 section h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
+    color: violet;
 }
 
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 1.2rem;
+}
+
+/* Images */
+.profile-img, .projects-img {
+    width: 250px;
+    height: auto;
+    border-radius: 50%;
+    margin: 1.5rem auto;
+    display: block;
+    border: 4px solid violet;
+}
+
+/* Footer Styling */
 footer {
-    background-color: #333;
+    background-color: rgba(128, 0, 128, 0.8);
     color: white;
     text-align: center;
     padding: 1rem 0;
 }
 
 footer a {
-    color: #00d1b2;
+    color: #e0b3ff;
     text-decoration: none;
+    font-weight: bold;
 }
 
 footer a:hover {
