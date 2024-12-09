@@ -1,0 +1,72 @@
+
+.testimonial_area{
+    padding: 130px 0;
+    background-image: url(../img/testmonial/banner.png);
+    position: relative;
+    z-index: 0;
+    background-size: cover;
+    background-position: center center;
+    &:before{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#001d38+0,001d38+100&0+0,1+100 */
+        background: -moz-linear-gradient(left,  rgba(0,29,56,0) 0%, rgba(0,29,56,1) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(left,  rgba(0,29,56,0) 0%,rgba(0,29,56,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right,  rgba(0,29,56,0) 0%,rgba(0,29,56,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00001d38', endColorstr='#001d38',GradientType=1 ); /* IE6-9 */
+        left: 0;
+        top: 0;
+        z-index: -1;
+        content: '';
+    }
+    @media #{$mobile_device} {
+        padding: 50px 0;
+    }
+    .single_testmonial{
+        p{
+            color: #fff;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 32px;
+            margin: 34px 0;
+            br{
+                @media (min-width: 320px) and (max-width: 1500px) {
+                    display: none;
+                }
+            }
+
+        }
+        .testmonial_author{
+            .thumb{
+                width: 42px;
+                height: 42px;
+                @include border-radius(50%);
+                margin: auto;
+                margin: auto auto 15px auto;
+            }
+            h3{
+                color: #fff;
+                font-size: 15px;
+                font-weight: 500;
+                margin-bottom: 5px;
+            }
+            span{
+                font-size: 13px;
+                font-weight: 400;
+                color: #fff;
+            }   
+        }
+    }
+    .owl-carousel .owl-item img {
+        display: inline-block;
+        width: auto;
+    }
+    .owl-carousel .owl-nav div.owl-next {
+        left: auto;
+        right: 0;
+    }
+    .owl-carousel .owl-nav div {
+        left: 0;
+    }
+}

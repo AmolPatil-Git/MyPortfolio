@@ -1,0 +1,96 @@
+.portfolio_area{
+    background-image: url(../img/banner/portfolio_bg.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding-top: 180px;
+    padding-bottom: 340px;
+    @media #{$mobile_device} {
+        padding-top: 60px;
+        
+    }
+    &:before{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: #001D38;
+        content: '';
+    }
+}
+
+// portfolio_image_area 
+.portfolio_image_area{
+    padding-bottom: 75px;
+    position: relative;
+    margin-top: -295px;
+    &.dec_margin{
+        margin-top: 0;
+        padding-top: 150px;
+        padding-bottom: 150px;
+        @media #{$mobile_device} {
+            padding: 50px 0; 
+        }
+        @media #{$tablet_device} {
+            padding: 70px 0; 
+        }
+        @media #{$mid_device} {
+            padding: 100px 0; 
+        }
+    }
+    .single_Portfolio{
+        position: relative;
+        margin-bottom: 20px;
+        overflow: hidden;
+        .portfolio_thumb{
+            height: 410px;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .portfolio_hover{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            background: rgba(97, 92, 253,.60);
+            @include transform(translateX(-50%));
+            @include transition(.5s);
+            opacity: 0;
+            overflow: hidden;
+            .title{
+                position: absolute;
+                top: 50%;
+                left: 0;
+                right: 0;
+                text-align: center;
+                @include transform(translateY(-50%));
+            }
+            h3{
+                color: #fff;
+                font-size:24px ;
+                font-weight: 700;
+            }
+        }
+        &:hover .portfolio_hover{
+            @include transform(translateX(0%));
+            opacity: 1;
+        }
+    }   
+    .more_portfolio{
+        margin-top: 60px;
+    }
+    .popup {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9;
+    }
+}

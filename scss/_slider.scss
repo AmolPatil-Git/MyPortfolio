@@ -1,0 +1,211 @@
+.slider_bg_1{
+    background-image: url(../img/banner/banner.png);
+}
+.slider_bg_2{
+    background-image: url(../img/banner/banner2.png);
+}
+.slider_area{
+    .single_slider{
+        position: relative;
+        z-index: 0;
+        height: 900px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+
+        .shap_pattern {
+            position: absolute;
+            right: 20%;
+            bottom: 0;
+        }
+        .social_links{
+            position: absolute;
+            right: 100px;
+            z-index: 999;
+            top: 50%;
+            @include transform(translateY(-50%));
+            z-index: 999;
+            @media #{$mobile_device} {
+                display: none;
+            }
+            li{
+                display: block;
+                margin-bottom: 15px;
+                a{
+                    width: 40px;
+                    height: 40px;
+                    display: inline-block;
+                    line-height: 40px;
+                    text-align: center;
+                    @include border-radius(50%);
+                    border: 1px solid rgba(255,255,255,.05);
+                    color: #fff;
+                    font-size: 15px;
+                    position: relative;
+                    z-index: 2;
+                    overflow: hidden;
+                    &::before{
+                        background: #615cfd; /* Old browsers */
+                        background: -moz-linear-gradient(top,  #615cfd 0%, #d465ef 100%); /* FF3.6-15 */
+                        background: -webkit-linear-gradient(top,  #615cfd 0%,#d465ef 100%); /* Chrome10-25,Safari5.1-6 */
+                        background: linear-gradient(to bottom,  #615cfd 0%,#d465ef 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#615cfd', endColorstr='#d465ef',GradientType=0 ); /* IE6-9 */
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        bottom: 0;
+                        right: 0;
+                        content: '';
+                        z-index: -1;
+                        opacity: 0;
+                        @include transform(scale(1.2));
+                        @include transition(.3s);
+                    }
+                    &:hover::before{
+                        opacity: 1;
+                        @include transform(scale(1));
+                    }
+                }
+                &:last-child{
+                    margin-bottom: 0;
+                }
+            }
+        }
+        &::before{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-image: url(../img/about/man.png);
+            width: 724px;
+            height: 767px;
+            content: '';
+            @media #{$mobile_device} {
+                width: 314px;
+                height: 300px;
+                content: '';
+                background-size: cover;
+            }
+            @media #{$tablet_device} {
+                width: 370px;
+                height: 370px;
+                content: '';
+                background-size: cover;
+            }
+
+        }
+        &::after{
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-image: url(../img/about/cirlcle.png);
+            width: 531px;
+            height: 504px;
+            content: '';
+            z-index: -2;
+            @media #{$mobile_device} {
+                display: none;
+            }
+            @media #{$tablet_device} {
+                width: 320px;
+                height: 320px;
+                content: '';
+                z-index: -2;
+                background-size: cover;
+            }
+        }
+        @media #{$mobile_device} {
+            height: 500px;
+        }
+        @media #{$tablet_device} {
+            height: 620px;
+        }
+        .phone_thumb {
+            position: relative;
+            top: 110px;
+            @media #{$mobile_device}{
+                top: 60px;
+            }
+            img{
+                @media #{$mobile_device}{
+                    width: 100%;
+                }
+                @media #{$tablet_device}{
+                    width: 100%;
+                }
+                @media #{$mid_device}{
+                    width: 100%;
+                }
+            }
+        }
+        .slider_text{
+            h3{
+                color: #FFF;
+                font-family: $font1;
+                font-size: 80px;
+                text-transform: capitalize;
+                font-weight: 700;
+                line-height: 82px;
+                margin-bottom: 9px;
+                br{
+                    @media #{$mobile_device}{
+                        display: none;
+                    }
+                    @media #{$tablet_device}{
+                        display: none;
+                    }
+                    @media #{$mid_device}{
+                        display: none;
+                    }
+                }
+             span{
+                 font-weight: 700;
+             }
+             @media #{$mobile_device} {
+               font-size: 30px;
+            //    letter-spacing: 3px;
+                line-height: 35px;
+            }
+             @media #{$tablet_device} {
+               font-size: 30px;
+               line-height: 35px;
+
+            }
+             @media #{$mid_device} {
+               font-size: 45px;
+               letter-spacing: 3px;
+               line-height: 55px;
+
+            }
+            }
+            span{
+                font-size: 30px;
+                font-weight: 400;
+                color: #FFFFFF;
+                position: relative;
+                z-index: 1;
+                &::before{
+                    position: absolute;
+                    background: #fff;
+                    width: 50px;
+                    height: 2px;
+                    content: '';
+                    left: -67px;
+                    top: 50%;
+                    margin-bottom: -1px;
+                }
+             @media #{$mid_device} {
+                font-size: 16px;
+             }
+             @media #{$mobile_device} {
+                font-size: 16px;
+             }
+            }
+            .video_service_btn> a{
+                margin-right: 15px;
+                @media #{$mobile_device} {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    } 
+}
