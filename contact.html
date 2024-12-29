@@ -220,6 +220,8 @@
       </div>
   </form>
   
+ 
+  
   <script>
     document.getElementById('contactForm').addEventListener('submit', function(event) {
       event.preventDefault();
@@ -231,15 +233,33 @@
         message: document.getElementById('message').value
       };
   
-      // Call Google Apps Script function to send email
-      google.script.run.withSuccessHandler(function() {
-        alert('Your message has been sent!');
-        window.location.href = 'thank_you.html';  // Redirect to thank you page
-      }).sendEmail(formData);  // Send the form data
+      // Replace with your Google Apps Script Web App URL
+      var scriptUrl = 'https://script.google.com/macros/s/1_Dc6Hm-X4Naox__Catq5EBJsyXA91E8JNnSLqE9OclacMphLmx6quDJ4/exec';  
+  
+      // Send form data to Google Apps Script using fetch
+      fetch(scriptUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 'success') {
+          alert('Your message has been sent!');
+          window.location.href = 'thank_you.html';  // Redirect to thank you page
+        } else {
+          alert('There was an error sending your message.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('There was an error sending your message.');
+      });
     });
   </script>
   
-
   </section>
   <!-- ================ contact section end ================= -->
 
