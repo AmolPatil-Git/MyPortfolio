@@ -1,37 +1,32 @@
 <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form fields
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $subject = htmlspecialchars($_POST['subject']);
+    $message = htmlspecialchars($_POST['message']);
 
-    $to = "spn8@spondonit.com";
-    $from = $_REQUEST['email'];
-    $name = $_REQUEST['name'];
-    $subject = $_REQUEST['subject'];
-    $number = $_REQUEST['number'];
-    $cmessage = $_REQUEST['message'];
+    // Your email address
+    $to = "pamol1781994@gmail.com";
 
-    $headers = "From: $from";
-	$headers = "From: " . $from . "\r\n";
-	$headers .= "Reply-To: ". $from . "\r\n";
-	$headers .= "MIME-Version: 1.0\r\n";
-	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+    // Create the email subject and body
+    $email_subject = "New Message from: " . $name;
+    $email_body = "You have received a new message from your contact form.\n\n" .
+                  "Name: " . $name . "\n" .
+                  "Email: " . $email . "\n" .
+                  "Subject: " . $subject . "\n" .
+                  "Message: \n" . $message;
 
-    $subject = "You have a message from your Bitmap Photography.";
+    // Email headers
+    $headers = "From: " . $email . "\r\n";
+    $headers .= "Reply-To: " . $email . "\r\n";
+    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-    $logo = 'img/logo.png';
-    $link = '#';
-
-	$body = "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><title>Express Mail</title></head><body>";
-	$body .= "<table style='width: 100%;'>";
-	$body .= "<thead style='text-align: center;'><tr><td style='border:none;' colspan='2'>";
-	$body .= "<a href='{$link}'><img src='{$logo}' alt=''></a><br><br>";
-	$body .= "</td></tr></thead><tbody><tr>";
-	$body .= "<td style='border:none;'><strong>Name:</strong> {$name}</td>";
-	$body .= "<td style='border:none;'><strong>Email:</strong> {$from}</td>";
-	$body .= "</tr>";
-	$body .= "<tr><td style='border:none;'><strong>Subject:</strong> {$csubject}</td></tr>";
-	$body .= "<tr><td></td></tr>";
-	$body .= "<tr><td colspan='2' style='border:none;'>{$cmessage}</td></tr>";
-	$body .= "</tbody></table>";
-	$body .= "</body></html>";
-
-    $send = mail($to, $subject, $body, $headers);
-
+    // Send the email
+    if (mail($to, $email_subject, $email_body, $headers)) {
+        echo "<script>alert('Your message has been sent successfully.'); window.location.href = 'thank_you.html';</script>";
+    } else {
+        echo "<script>alert('Sorry, there was an error sending your message. Please try again later.');</script>";
+    }
+}
 ?>
