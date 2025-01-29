@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Allow: /
+
+Sitemap: https://devamolpatil.in/sitemap.xml
